@@ -1,0 +1,56 @@
+.userPhoto{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.userCard{
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+    margin-left: 40px;
+}
+
+.followActionButton{
+    background: #6c6cb9;
+    color: white;
+    font-size: medium;
+    border-style: none;
+    width: 70px;
+}
+
+.userCardInfo{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    border-width: 2px;
+    border-color: #187e7b;
+    border-style: solid;
+    border-radius: 7px;
+}
+
+.userCardName{
+    padding: 5px;
+    color: #187e7b;
+    font-weight: bold;
+}
+
+.userCardStatus{
+    padding: 5px;
+    margin-top: 15px;
+    color: #187e7b;
+}
+
+.userCardLocation{
+    color: #187e7b;
+    font-weight: bold;
+    justify-self: end;
+    margin-top: 5px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.pageName{
+    padding: 5px;
+    font-weight: bold;
+    font-size: large;
+}
