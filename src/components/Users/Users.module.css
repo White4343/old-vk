@@ -1,17 +1,17 @@
-.userPhoto{
+.userPhoto {
     width: 50px;
     height: 50px;
     border-radius: 30px;
 }
 
-.userCard{
+.userCard {
     display: flex;
     padding: 20px;
     gap: 15px;
     margin-left: 40px;
 }
 
-.followActionButton{
+.followActionButton {
     background: #6c6cb9;
     color: white;
     font-size: medium;
@@ -19,7 +19,7 @@
     width: 70px;
 }
 
-.userCardInfo{
+.userCardInfo {
     display: grid;
     grid-template-columns: 2fr 3fr;
     border-width: 2px;
@@ -28,19 +28,19 @@
     border-radius: 7px;
 }
 
-.userCardName{
+.userCardName {
     padding: 5px;
     color: #187e7b;
     font-weight: bold;
 }
 
-.userCardStatus{
+.userCardStatus {
     padding: 5px;
     margin-top: 15px;
     color: #187e7b;
 }
 
-.userCardLocation{
+.userCardLocation {
     color: #187e7b;
     font-weight: bold;
     justify-self: end;
@@ -49,8 +49,17 @@
     text-align: right;
 }
 
-.pageName{
+.pageName {
     padding: 5px;
     font-weight: bold;
     font-size: large;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+.pageSelector{
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
 }

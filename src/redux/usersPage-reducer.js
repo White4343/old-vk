@@ -1,9 +1,16 @@
+import {type} from "@testing-library/user-event/dist/type";
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT'
 
 let initialState = {
-    users: []
+    users: [],
+    currentPage: 1,
+    totalUserCount: 0,
+    pageSize: 5
 }
 
 export const usersPageReducer = (state = initialState, action) => {
@@ -34,8 +41,15 @@ export const usersPageReducer = (state = initialState, action) => {
             }
         case SET_USERS:
             return {
-                ...state,
-                users: [...state.users, ...action.users]
+                ...state, users: action.users
+            }
+        case SET_CURRENT_PAGE:
+            return {
+                ...state, currentPage: action.currentPage
+            }
+        case SET_TOTAL_USER_COUNT:
+            return {
+                ...state, totalUserCount: action.totalUserCount
             }
         default:
             return state
@@ -52,4 +66,10 @@ export const unfollowActionCreator = (userId) => ({
 
 export const setUsersActionCreator = (users) => ({
     type: SET_USERS, users
+})
+
+export const setCurrentPageActionCreator = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+
+export const setTotalUserCounterActionCreator = (totalUserCount) => ({
+    type: SET_TOTAL_USER_COUNT, totalUserCount
 })
