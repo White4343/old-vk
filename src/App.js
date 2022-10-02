@@ -1,6 +1,4 @@
 import './App.css';
-import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
 import {
     Routes,
     Route,
@@ -11,15 +9,19 @@ import News from "./components/News/News";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App(props) {
     return (
         <div className='app-all'>
-            <Header/>
+            <HeaderContainer/>
             <NavbarContainer/>
             <div className='app-all-content'>
                 <Routes>
-                    <Route path='profile' element={<Profile/>}></Route>
+                    <Route path='profile/*' element={<ProfileContainer/>}>
+                        <Route path=':userId' element={<ProfileContainer/>}/>
+                    </Route>
                     <Route path='dialogs/*' element={<DialogsContainer/>}></Route>
                     <Route path='news' element={<News/>}></Route>
                     <Route path='music' element={<Music/>}></Route>

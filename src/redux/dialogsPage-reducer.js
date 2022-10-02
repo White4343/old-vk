@@ -37,13 +37,13 @@ export const dialogsPageReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageActionCreator = () => {
+export const addMessage = () => {
     return {
         type: ADD_MESSAGE
     }
 }
 
-export const updateNewMessageTextActionCreator = (text) => {
+export const updateNewMessageTextBody = (text) => {
     return {
         type: UPDATE_MESSAGE_BODY_TEXT,
         newText: text

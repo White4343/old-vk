@@ -1,5 +1,6 @@
 import s from "./Users.module.css";
 import stockImg from "../../assets/images/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
 
@@ -11,6 +12,11 @@ let Users = (props) => {
         pages.push(i)
     }
 
+    let curP = props.currentPage;
+    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
+    let curPL = curP + 5;
+    let slicedPages = pages.slice(curPF, curPL);
+
     return <div>
         <div className={s.pageName}>
             Users
@@ -19,16 +25,22 @@ let Users = (props) => {
             props.users.map(u => <div className={s.userCard} key={u.id}>
                 <div>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.small : stockImg} className={s.userPhoto}/>
+                        <NavLink to={'./../profile/' + u.id}>
+                            <img src={u.photos.small != null ? u.photos.small : stockImg} className={s.userPhoto}/>
+                        </NavLink>
                     </div>
                     <div>
                         {u.followed
-                            ? <button className={s.followActionButton} onClick={() => {
-                                props.unfollowUser(u.id)
-                            }}>Unfollow</button>
-                            : <button className={s.followActionButton} onClick={() => {
-                                props.followUser(u.id)
-                            }}>Follow</button>}
+                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      className={s.followActionButton}
+                                      onClick={() => {
+                                          props.unfollowUser(u.id)
+                                      }}>Unfollow</button>
+                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                      className={s.followActionButton}
+                                      onClick={() => {
+                                          props.followUser(u.id)
+                                      }}>Follow</button>}
                     </div>
                 </div>
                 <div className={s.userCardInfo}>
@@ -52,7 +64,7 @@ let Users = (props) => {
             </div>)
         }
         <div className={s.pageSelector}>
-            {pages.map(p => {
+            {slicedPages.map(p => {
                 return <span className={props.currentPage === p ? s.selectedPage : ""} onClick={() => {
                     props.onPageChange(p)
                 }} key={p}> {p} </span>

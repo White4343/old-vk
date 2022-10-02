@@ -19,6 +19,10 @@
     width: 70px;
 }
 
+.followActionButton:disabled {
+    background: #354a56;
+}
+
 .userCardInfo {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -58,7 +62,8 @@
 .selectedPage {
     font-weight: bold;
 }
-.pageSelector{
+
+.pageSelector {
     text-align: center;
     font-size: larger;
     cursor: pointer;
