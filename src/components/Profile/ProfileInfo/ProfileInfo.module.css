@@ -1,3 +1,23 @@
-.description_content{
+.profile_block{
+    display: grid;
+    grid-template-columns: 2fr 4fr;
     padding: 20px;
+}
+
+.avatar{
+    width: 250px;
+    height: 250px;
+}
+
+.about{
+
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
 }
