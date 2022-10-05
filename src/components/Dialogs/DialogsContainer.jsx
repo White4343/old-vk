@@ -2,6 +2,7 @@ import {addMessage, updateNewMessageTextBody} from "../../redux/dialogsPage-redu
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthNavigate} from "../../hoc/withAuthNavigate";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -10,6 +11,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-const DialogsContainer = withAuthNavigate(connect(mapStateToProps, {updateNewMessageTextBody, addMessage})(Dialogs))
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, {updateNewMessageTextBody, addMessage}),
+    withAuthNavigate
+)(Dialogs);
